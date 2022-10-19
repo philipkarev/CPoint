@@ -76,7 +76,7 @@ CDist& CDist::operator++() {
         cout << "crr[" << i << "]" << "brr[" << i << "]"  << endl;
     }
     crr[len] = crr[len-1];
-    delete brr;
+    delete[] brr;
     ++len;
     this -> brr = crr;
     return *this;
