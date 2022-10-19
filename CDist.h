@@ -14,12 +14,20 @@ class CDist {
 public:
     CDist(Dist* a, int len);
     CDist(const CDist&);
-
+    CDist(CDist&&) noexcept;
     ~CDist();
 
+    CDist& operator=(const CDist&);
+    CDist& operator=(CDist&& obj) noexcept;
+
     CPoint operator+(const CPoint& a) const;
+
     CDist& operator++();
     CDist& operator--();
+
+    CDist operator++(int);
+    CDist operator--(int);
+
     friend ostream& operator << (ostream&, const CDist&);
 
     friend class CPoint;

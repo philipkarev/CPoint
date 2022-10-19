@@ -55,6 +55,16 @@ int main(){
     --res2; --res2;
     cout << "--res2; --res2; = " << res2 << endl;
 
+    CDist rescopy =  res4;
+    cout << "rescopy = " << res4 << endl;
+
+    CDist res6 = CDist(res4);
+    res4++;
+    cout << "res4++ = " << res4 << endl;
+
+    res4--;
+    cout << "res4-- = " << res4 << endl;
+
     return 0;
 }
 

@@ -5,9 +5,8 @@ CPoint::CPoint(Point* a, int len) {
     this -> len = len;
 
     arr = new Point[len];
-    for (int i = 0; i < len; i++) {
+    for (int i = 0; i < len; i++)
         arr[i] = a[i];
-    }
 }
 
 CPoint::CPoint(const CPoint& a) {
@@ -19,9 +18,38 @@ CPoint::CPoint(const CPoint& a) {
         this -> arr[i] = a.arr[i];
 }
 
-CPoint::~CPoint(){
+CPoint::CPoint(CPoint&& obj) noexcept {
 
+    arr = obj.arr;
+    len = obj.len;
+    obj.len = 0;
+}
+
+CPoint::~CPoint() {
+
+    if (len > 0)
+        delete[] arr;
+}
+
+CPoint& CPoint::operator=(const CPoint& b) {
+
+    this -> len = b.len;
+
+    arr = new Point[len];
+    for (int i = 0; i < len; i++)
+        this -> arr[i] = b.arr[i];
+    return *this;
+}
+
+CPoint& CPoint::operator=(CPoint&& obj) noexcept {
+
+    if (&obj == this)
+        return *this;
     delete[] arr;
+    len = obj.len;
+    arr = obj.arr;
+    obj.len = 0;
+    return *this;
 }
 
 CPoint CPoint::operator+(const CDist& b) const {
@@ -55,23 +83,23 @@ CPoint& CPoint::operator++() {
     return *this;
 }
 
-/*CPoint& CPoint::operator++(){
-    Point* crr = new Point[len+1];
-    for (int i = 0; i < len; ++i)
-        crr[i] = arr[i];
-    crr[len] = crr[len-1];
-    delete arr;
-    ++len;
-    this -> arr = new Point[len];
-    for (int i = 0; i < len + 1; ++i)
-        arr[i] = crr[i];
-    return *this;
-}*/
-
 CPoint& CPoint::operator--(){
 
     --len;
     return *this;
+}
+
+CPoint CPoint::operator++(int) {
+
+    CPoint tmp(*this);
+    ++(*this);
+    return tmp;
+}
+CPoint CPoint::operator--(int) {
+
+    CPoint tmp(*this);
+    --(*this);
+    return tmp;
 }
 
 ostream & operator << (ostream &stream, const CPoint& s) {

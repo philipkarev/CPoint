@@ -16,14 +16,20 @@ class CPoint {
 public:
     CPoint(Point* a, int len);
     CPoint(const CPoint&);
-
+    CPoint(CPoint&&) noexcept;
     ~CPoint();
+
+    CPoint& operator=(const CPoint&);
+    CPoint& operator=(CPoint&& obj) noexcept;
 
     CPoint operator+(const CDist &b) const;
     CDist operator-(const CPoint &a) const;
 
     CPoint& operator++();
     CPoint& operator--();
+
+    CPoint operator++(int);
+    CPoint operator--(int);
 
     friend ostream &operator<<(ostream &, const CPoint &);
 
