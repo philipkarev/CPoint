@@ -54,15 +54,16 @@ CPoint& CPoint::operator=(CPoint&& obj) noexcept {
 
 CPoint CPoint::operator+(const CDist& b) const {
 
-    CPoint crr = CPoint(this -> arr, this -> len);
-    for (int i= 0; i < b.len; i++)
+    int l = (b.len > this -> len ? this -> len : b.len);
+    CPoint crr = CPoint(this -> arr, l);
+    for (int i= 0; i < l; i++)
         crr.arr[i] = this -> arr[i] + b.brr[i];
     return crr;
 }
 
 CDist CPoint::operator-(const CPoint &a) const {
 
-    int l = a.len;
+    int l = (a.len > this -> len ? this -> len : a.len);
     Dist* brr = new Dist[l];
     for (int i = 0; i < l; i++)
         brr[i] = this -> arr[i] - a.arr[i];
@@ -85,7 +86,10 @@ CPoint& CPoint::operator++() {
 
 CPoint& CPoint::operator--(){
 
-    --len;
+    if (len > 1)
+        --len;
+    else
+        cout << "\nError: incorrect data. Decrement operation is unavailable" << endl;
     return *this;
 }
 
@@ -103,6 +107,7 @@ CPoint CPoint::operator--(int) {
 }
 
 ostream & operator << (ostream &stream, const CPoint& s) {
+
     stream << "[";
     for (int i = 0; i < s.len; i++) {
         if ( i != 0 ) {
@@ -112,4 +117,11 @@ ostream & operator << (ostream &stream, const CPoint& s) {
     }
     stream << "]" << endl;
     return stream;
+}
+
+CPoint&& operator+(CPoint&& a, CDist& b) {
+
+    for (int i= 0; i < b.len; i++)
+        a.arr[i] =  a.arr[i] + b.brr[i];
+    return (CPoint&&)a;
 }

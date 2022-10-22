@@ -29,6 +29,7 @@ public:
     CDist operator--(int);
 
     friend ostream& operator << (ostream&, const CDist&);
+    friend CPoint&& operator+(CPoint&&, CDist&);
 
     friend class CPoint;
 };

@@ -11,7 +11,6 @@ CDist::CDist(Dist* a, int len) {
     for (int i = 0; i < len; i++) {
         brr[i] = a[i];
     }
-    //cout << "called constr for CDist" << endl;
 }
 
 CDist::CDist(const CDist& b) {
@@ -22,7 +21,6 @@ CDist::CDist(const CDist& b) {
     for (int i = 0; i < len; i++) {
         this -> brr[i] = b.brr[i];
     }
-    //cout << "called copy constr for CDist" << endl;
 }
 
 CDist::CDist(CDist&& obj) noexcept {
@@ -36,7 +34,6 @@ CDist::~CDist() {
 
     if (len > 0)
         delete[] brr;
-    //cout << "called destr for CDist" << endl;
 }
 
 CDist& CDist::operator=(const CDist& b) {
@@ -62,8 +59,9 @@ CDist& CDist::operator=(CDist&& obj) noexcept {
 
 CPoint CDist::operator+(const CPoint& a) const {
 
-    CPoint crr = CPoint(a);
-    for (int i = 0; i < a.len; i++)
+    int l = (a.len > this -> len ? this -> len : a.len);
+    CPoint crr = CPoint(a.arr, l);
+    for (int i = 0; i < l; i++)
         crr.arr[i] = this -> brr[i] + a.arr[i];
     return crr;
 }
@@ -71,10 +69,8 @@ CPoint CDist::operator+(const CPoint& a) const {
 CDist& CDist::operator++() {
 
     Dist* crr = new Dist[len+1];
-    for (int i = 0; i < len; ++i) {
+    for (int i = 0; i < len; ++i)
         crr[i] = brr[i];
-        cout << "crr[" << i << "]" << "brr[" << i << "]"  << endl;
-    }
     crr[len] = crr[len-1];
     delete[] brr;
     ++len;
@@ -84,7 +80,10 @@ CDist& CDist::operator++() {
 
 CDist& CDist::operator--() {
 
-    --len;
+    if (len > 1)
+        --len;
+    else
+        cout << "\nError: incorrect data. Decrement operation is unavailable" << endl;
     return *this;
 }
 
@@ -102,6 +101,7 @@ CDist CDist::operator--(int) {
 }
 
 ostream& operator << (ostream &stream, const CDist& s) {
+
     stream << "[";
     for (int i = 0; i < s.len; i++) {
         if ( i != 0 ) {

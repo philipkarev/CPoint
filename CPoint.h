@@ -32,9 +32,12 @@ public:
     CPoint operator--(int);
 
     friend ostream &operator<<(ostream &, const CPoint &);
+    friend CPoint&& operator+(CPoint&&, CDist&);
 
     friend class Point;
     friend class CDist;
 };
+
+CPoint&& operator+(CPoint&&, CDist&);
 
 #endif //CPOINT_CPOINT_H

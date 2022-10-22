@@ -7,6 +7,7 @@
 #include "CPoint.h"
 
 int main(){
+
     srand(time(NULL));
 
     Point a(rand() % 7, rand() % 7), b(rand() % 7, rand() % 7);
@@ -19,15 +20,14 @@ int main(){
     darr[0] = d1;
     darr[1] = d2;
 
-    CDist cd = CDist(darr, dim); 
-
+    CDist cd = CDist(darr, dim);
     cout << "cd = " <<  cd << endl;
 
     Point parr[dim];
     parr[0] = a;
     parr[1] = b;
 
-    CPoint cp = CPoint(parr, dim); 
+    CPoint cp = CPoint(parr, dim);
 
     cout << "cp = " << cp << endl;
 
@@ -43,11 +43,11 @@ int main(){
     CDist res4 = res - cp;
     cout << "res4 = " << res4 << endl;
 
-    ++res4;
-    cout << "++res4 = " << res4 << endl;
+    --res4;
+    cout << "--res4; res4-- = " << res4-- << endl;
 
-    --res4; --res4;
-    cout << "--res4; --res4; = " << res4 << endl;
+    // --res4; --res4;
+    // cout << "--res4; --res4; = " << res4 << endl;
 
     ++res2;
     cout << "++res2 = " << res2 << endl;
@@ -62,8 +62,16 @@ int main(){
     res4++;
     cout << "res4++ = " << res4 << endl;
 
-    res4--;
-    cout << "res4-- = " << res4 << endl;
+    //res4--;
+    //cout << "res4-- = " << res4 << endl;
+
+    cout << "\n\n\nres4 = " << res4 << "and res2 = " << res2 << endl;
+
+    cout << "res4 + res2 = " << res4 + res2 << endl;
+    cout << "res2 + res4 = " << res2 + res4 << endl;
+    cout << "res2++ = " << res2++ << endl;
+    cout << "res2 = " << res2 << endl;
+    cout << "res2 - res2 = " << res2 - res2 << endl;
 
     return 0;
 }
