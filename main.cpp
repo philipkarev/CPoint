@@ -70,8 +70,9 @@ int main(){
     cout << "res4 + res2 = " << res4 + res2 << endl;
     cout << "res2 + res4 = " << res2 + res4 << endl;
     cout << "res2++ = " << res2++ << endl;
+    ++++res2;
     cout << "res2 = " << res2 << endl;
-    cout << "res2 - res2 = " << res2 - res2 << endl;
+    cout << "res2 - ------res2 = " << res2 - ------res2 << endl;
 
     return 0;
 }

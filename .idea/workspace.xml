@@ -19,10 +19,6 @@
   <component name="ChangeListManager">
     <list default="true" id="5b07cf5c-3c6a-4850-93ba-a904a41709d5" name="Changes" comment="Added CDist.cpp, CPoint.cpp, CMakeLists.txt. Made some changes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CDist.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/CDist.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CDist.h" beforeDir="false" afterPath="$PROJECT_DIR$/CDist.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CPoint.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/CPoint.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CPoint.h" beforeDir="false" afterPath="$PROJECT_DIR$/CPoint.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -105,7 +101,8 @@
       <workItem from="1666188051407" duration="142000" />
       <workItem from="1666240381611" duration="598000" />
       <workItem from="1666335864749" duration="5756000" />
-      <workItem from="1666452845906" duration="3180000" />
+      <workItem from="1666452845906" duration="3737000" />
+      <workItem from="1666456671580" duration="353000" />
     </task>
     <task id="LOCAL-00001" summary="Added CDist.cpp, CPoint.cpp, CMakeLists.txt. Made some changes">
       <created>1665868180291</created>
