@@ -99,6 +99,7 @@ CPoint CPoint::operator++(int) {
     ++(*this);
     return tmp;
 }
+
 CPoint CPoint::operator--(int) {
 
     CPoint tmp(*this);
